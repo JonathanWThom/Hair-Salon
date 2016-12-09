@@ -1,10 +1,9 @@
-<h1>Hair Salon Owner Page</h1>
 <h2>This is <%= @stylist.name() %>'s profile page</h2>
 
 <% if @stylist.clients.any?() %>
-  <h3>These are <%= @stylist.name() %>'s clients</h3>
+  <h3>These are <%= @stylist.name() %>'s clients. Click on them modify their accounts.</h3>
   <% @stylist.clients.each() do |client| %>
-    <li><%= client.name() %></li>
+    <li><a href='/clients/<%= client.id() %>'><%= client.name() %></a></li>
   <% end %>
 <% else %>
   <h3> <%= @stylist.name() %> doesn't have any clients yet. Bummer. </h3>
@@ -26,12 +25,10 @@
     <label for="new_name">Change <%= @stylist.name() %>'s name to:</label>
     <input id='new_name' name='new_name'>
   </div>
-  <button type="submit" class='btn btn-primary'>Change Name</button>
+  <button type="submit" class='btn btn-info'>Change Name</button>
 </form>
 
 <h3>Fire this Stylist</h3>
-<p>Warning, this will also remove all their clients from your database</p>
-<p>But to be fair, if you're firing them, it's probably because they don't have any.</p>
 <form action='/stylists/<%= @stylist.id() %>' method='post'>
   <input name='_method' type='hidden' value='delete'>
   <button type='submit' class='btn btn-danger'>Get Outta My Sight!</button>

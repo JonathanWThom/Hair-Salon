@@ -58,7 +58,7 @@ describe(Stylist) do
     end
   end
 
-  describe('update') do
+  describe('#update') do
     it('updates a stylist\'s name') do
       @stylist.save()
       @stylist.update({:name => 'Maggie Simpson'})
@@ -66,7 +66,7 @@ describe(Stylist) do
     end
   end
 
-  describe('delete') do
+  describe('#delete') do
     it('deletes a stylist') do
       @stylist.save()
       @stylist.delete()

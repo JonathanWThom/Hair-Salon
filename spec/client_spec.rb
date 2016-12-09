@@ -37,7 +37,7 @@ describe(Client) do
     end
   end
 
-  describe('update') do
+  describe('#update') do
     it('updates a client\'s name') do
       @client.save()
       @client.update({:name => 'Ned Flanders'})
@@ -45,12 +45,21 @@ describe(Client) do
     end
   end
 
-  describe('delete') do
+  describe('#delete') do
     it('deletes a client') do
       @client.save()
       @client.delete()
       expect(Client.all()).to(eq([]))
     end
   end
-  
+
+  describe('.find') do
+    it('finds a client based on their id') do
+      @client.save()
+      client2 = Client.new({:name => 'Krusty the Clown', :stylist_id =>1, :id => nil})
+      client2.save()
+      expect(Client.find(@client.id())).to(eq(@client))
+    end
+  end
+
 end
