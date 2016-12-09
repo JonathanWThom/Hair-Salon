@@ -1,20 +1,24 @@
-<h2>This client's name is: <%= @client.name() %>. Their stylist is: <%= @stylist.name() %></h3>
+<h2><%= @client.name() %> (Stylist: <%= @stylist.name() %>)</h2>
 
-<h3>Change their Name:</h3>
-<form action="/clients/<%= @client.id() %>" method="post">
-  <input name='_method' type='hidden' value='patch'>
-  <div class="form-group">
-    <label for="new_name">Their new name:</label>
-    <input id='new_name' name='new_name'>
-  </div>
-  <button type="submit" class="btn btn-info">Change Name</button>
-</form>
+<div class="well">
+  <h3>Change <%= @client.name() %>'s name.</h3>
+  <form action="/clients/<%= @client.id() %>" method="post">
+    <input name='_method' type='hidden' value='patch'>
+    <div class="form-group">
+      <input id='new_name' name='new_name' placeholder="New Name">
+    </div>
+    <button type="submit" class="btn btn-info">Change Name</button>
+  </form>
+</div>
 
-<h3>Delete this Client:</h3>
-<form action="/clients/<%= @client.id() %>" method="post">
-  <input name='_method' type='hidden' value='delete'>
-  <button type='submit' class='btn btn-danger'>Delete 'Em!</button>
-</form>
+<div class="well">
+  <h3>Delete this client.</h3>
+  <form action="/clients/<%= @client.id() %>" method="post">
+    <input name='_method' type='hidden' value='delete'>
+    <button type='submit' class='btn btn-danger'>Delete 'Em!</button>
+  </form>
+</div>
+
 <a href='/stylists/<%= @stylist.id() %>'>Return to <%= @stylist.name() %>'s Page</a>
 <br>
 <a href='/'>Return Home</a>

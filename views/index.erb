@@ -1,20 +1,20 @@
-<h1>Hair Salon Owner Page</h1>
-<h2>Stylists</h2>
-<% if @stylists.any?() %>
-  <h3>These are your stylists. Click on one to go to their profile page:</h3>
-  <ul>
+<div class="well">
+  <% if @stylists.any?() %>
+    <h3>These are your stylists.</h3>
     <% @stylists.each() do |stylist| %>
-      <li><a href="/stylists/<%= stylist.id() %>"><%= stylist.name() %></a></li>
+      <a href="/stylists/<%= stylist.id() %>"><%= stylist.name() %></a><br>
     <% end %>
-  </ul>
-<% else %>
-  <h3>You don't have any stylists! Not much of a hair salon you're running.</h3>
-<% end %>
+  <% else %>
+    <h3>You don't have any stylists! Not much of a hair salon you're running.</h3>
+  <% end %>
+</div>
 
-<h3>Add a Stylist</h3>
-<form action="/stylists" method="post">
-  <div class="form-group">
-    <input id="stylist_name" name="stylist_name" placeholder="Stylist Name">
-  </div>
-  <button type="submit" class="btn btn-primary">Add a Stylist</button>
-</form>
+<div class="well">
+  <h3>Add a stylist.</h3>
+  <form action="/stylists" method="post">
+    <div class="form-group">
+      <input id="stylist_name" name="stylist_name" placeholder="Stylist Name">
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+  </form>
+</div>

@@ -1,4 +1,4 @@
-# Hey Franz, 
+# Hey Franz,
 # I *think* I did a better job of not being redundant in my integration specs this week, but would definitely appreciate the feedback if they still aren't what you're looking for.
 
 
@@ -11,7 +11,7 @@ describe('adding a new stylist', {:type => :feature}) do
   it('allows the user to add a stylist and view their page') do
     visit('/')
     fill_in('stylist_name', :with => 'Milhouse Van Houten')
-    click_button('Add a Stylist')
+    click_button('Add')
     click_link('Milhouse Van Houten')
     expect(page).to have_content('Milhouse Van Houten')
   end

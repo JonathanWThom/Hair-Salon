@@ -1,0 +1,36 @@
+body {
+  background-color: #EBCDFF;
+  text-align: center;
+}
+
+a {
+  font-size: 25px;
+}
+
+h1 {
+  text-align: center;
+}
+
+#header {
+  background-color: lightpink;
+  border: 2px solid black;
+}
+
+ul {
+   list-style: none;
+}
+
+.well {
+  background-color: lightpink;
+  border: 2px solid black;
+}
+
+input {
+  border-radius: 5px;
+}
+
+h2 {
+  font-family: cursive;
+  font-size: 45px;
+  font-weight: bold;
+}
