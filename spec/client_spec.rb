@@ -17,4 +17,10 @@ describe(Client) do
     end
   end
 
+  describe('.all') do
+    it('will be empty at first') do
+      expect(Client.all()).to(eq([]))
+    end
+  end
+
 end
