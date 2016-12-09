@@ -15,6 +15,7 @@ _Users can input new stylists, assign clients to stylists, and modify or delete 
 $ postgres
 $ psql
 CREATE DATABASE hair_salon;
+\c hair_salon
 CREATE TABLE stylists (id serial PRIMARY KEY, name varchar);
 CREATE TABLE clients (id serial PRIMARY KEY, name varchar, stylist_id int);
 CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;
@@ -22,7 +23,7 @@ CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;
 * _Then, in another window:_
 ```
 $ git clone https://github.com/JonathanWThom/Hair-Salon.git
-$ cd salon
+$ cd Hair-Salon
 $ bundle
 $ ruby app.rb
 ```
