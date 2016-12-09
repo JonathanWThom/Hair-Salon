@@ -1,3 +1,7 @@
+# Hey Franz,
+# I read your notes about integration specs last week, about how I was being a bit too redundant in my testing. I have to confess that I'm still not totally sure how *not* to do that and still have them pass - especially when there are certain links I need to click on to get to the next page. I'll put my name on the whiteboard to talk to you this week, especially about this.
+
+
 require('capybara/rspec')
 require('./app')
 Capybara.app = Sinatra::Application
@@ -60,5 +64,34 @@ describe('deleting a client', {:type => :feature}) do
     click_link('Karl')
     click_button('Delete \'Em!')
     expect(page).not_to have_content('Karl')
+  end
+end
+
+describe('deleting a client', {:type => :feature}) do
+  it('allows user to delete a client') do
+    stylist = Stylist.new({:name => 'Milhouse Van Houten', :id => nil})
+    stylist.save()
+    visit('/')
+    click_link('Milhouse Van Houten')
+    fill_in('client_name', :with => 'Karl')
+    click_button('Add Client')
+    click_link('Karl')
+    click_button('Delete \'Em!')
+    expect(page).not_to have_content('Karl')
+  end
+end
+
+describe('modifying a client name', {:type => :feature}) do
+  it('allows user to change a client\'s name') do
+    stylist = Stylist.new({:name => 'Milhouse Van Houten', :id => nil})
+    stylist.save()
+    visit('/')
+    click_link('Milhouse Van Houten')
+    fill_in('client_name', :with => 'Karl')
+    click_button('Add Client')
+    click_link('Karl')
+    fill_in('new_name', :with => 'Chief Wiggum')
+    click_button('Change Name')
+    expect(page).to have_content('Chief Wiggum')
   end
 end
