@@ -11,6 +11,13 @@ describe(Stylist) do
     end
   end
 
+  describe('#id') do
+    it('returns the id of the stylist, once it has been saved') do
+      @stylist.save()
+      expect(@stylist.id()).to(be_an_instance_of(Fixnum))
+    end
+  end
+
   describe('.all') do
     it('will be empty at first') do
       expect(Stylist.all()).to(eq([]))
@@ -39,6 +46,8 @@ describe(Stylist) do
       expect(Stylist.find(@stylist.id())).to(eq(@stylist))
     end
   end
+
+
   #clients
   #id
   #find - has saves in it
