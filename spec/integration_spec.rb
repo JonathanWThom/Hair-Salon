@@ -33,3 +33,14 @@ describe('modifying a stylist\'s name', {:type => :feature}) do
     expect(page).to have_content('Lenny')
   end
 end
+
+describe('deleting a stylist', {:type => :feature}) do
+  it('allows the user to delete a stylist') do
+    stylist = Stylist.new({:name => 'Milhouse Van Houten', :id => nil})
+    stylist.save()
+    visit('/')
+    click_link('Milhouse Van Houten')
+    click_button('Get Outta My Sight!')
+    expect(page).not_to have_content('Milhouse Van Houten')
+  end
+end
