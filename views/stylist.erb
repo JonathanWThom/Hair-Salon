@@ -1,0 +1,22 @@
+<h1>Hair Salon Owner Page</h1>
+<h2>This is <%= @stylist.name() %>'s profile page</h2>
+
+<% if @stylist.clients.any?() %>
+  <h3>These are <%= @stylist.name() %>'s clients</h3>
+  <% stylist.clients.each() do |client| %>
+    <li><%= client.name() %></li>
+  <% end %>
+<% else %>
+  <h3> <%= @stylist.name() %> doesn't have any clients yet. Bummer. </h3>
+<% end %>
+
+<h3>Add a Client</h3>
+<form action="/stylists" method="post">
+  <div class="form-group">
+    <input id="stylist_name" name="stylist_name" placeholder="Stylist Name">
+  </div>
+  <button type="submit" class="btn btn-primary">Add a Stylist</button>
+</form>
+
+
+% add client
