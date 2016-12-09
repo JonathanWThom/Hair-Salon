@@ -56,17 +56,20 @@ get('/clients/:id') do
   erb(:client)
 end
 
-# patch('/clients/:id') do
-#   name = params.fetch('new_name')
-#   @client = Stylist.find(params.fetch('id').to_i())
-#   @stylist.update({:name => name})
-#   erb(:stylist)
-# end
-#patch clients
-#delete clients
+patch('/clients/:id') do
+  name = params.fetch('new_name')
+  @client = Client.find(params.fetch('id').to_i())
+  @client.update({:name => name})
+  stylist_id = @client.stylist_id()
+  @stylist = Stylist.find(stylist_id)
+  erb(:client)
+end
 
-
-
-# As a salon owner, I want to view, add, update and delete stylists.
-# As a salon owner, I want to view, add, update and delete clients.
-# As a salon owner, I want to add clients to a stylist.
+delete('/clients/:id') do
+  @client = Client.find(params.fetch('id').to_i())
+  @client.delete()
+  @clients = Client.all()
+  stylist_id = @client.stylist_id()
+  @stylist = Stylist.find(stylist_id)
+  erb(:stylist)
+end

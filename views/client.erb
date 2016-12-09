@@ -9,3 +9,12 @@
   </div>
   <button type="submit" name="btn btn-info">Change Name</button>
 </form>
+
+<h3>Delete this Client:</h3>
+<form action="/clients/<%= @client.id() %>" method="post">
+  <input name='_method' type='hidden' value='delete'>
+  <button type='submit' name='btn btn-danger'>Delete 'Em!</button>
+</form>
+<a href='/stylists/<%= @stylist.id() %>'>Return to <%= @stylist.name() %>'s Page</a>
+<br>
+<a href='/'>Return Home</a>
