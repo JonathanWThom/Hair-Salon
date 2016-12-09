@@ -1,5 +1,5 @@
-# Hey Franz,
-# I read your notes about integration specs last week, about how I was being a bit too redundant in my testing. I have to confess that I'm still not totally sure how *not* to do that and still have them pass - especially when there are certain links I need to click on to get to the next page. I'll put my name on the whiteboard to talk to you this week, especially about this.
+# Hey Franz, 
+# I *think* I did a better job of not being redundant in my integration specs this week, but would definitely appreciate the feedback if they still aren't what you're looking for.
 
 
 require('capybara/rspec')
