@@ -65,6 +65,13 @@ describe(Stylist) do
       expect(@stylist.name()).to(eq('Maggie Simpson'))
     end
   end
-  #update
+
+  describe('delete') do
+    it('deletes a stylist') do
+      @stylist.save()
+      @stylist.delete()
+      expect(Stylist.all()).to(eq([]))
+    end
+  end
   #delete
 end
