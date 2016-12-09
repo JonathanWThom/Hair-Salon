@@ -23,4 +23,18 @@ describe(Client) do
     end
   end
 
+  describe('#save') do
+    it('saves a client') do
+      @client.save()
+      expect(Client.all()).to(eq([@client]))
+    end
+  end
+
+  describe('#==') do
+    it('sets clients equal if they have the same name and stylist id') do
+      client2 = Client.new({:name => 'Homer Simpson', :stylist_id => 1})
+      expect(@client).to(eq(client2))
+    end
+  end
+
 end
