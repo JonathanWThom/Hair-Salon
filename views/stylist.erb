@@ -3,20 +3,18 @@
 
 <% if @stylist.clients.any?() %>
   <h3>These are <%= @stylist.name() %>'s clients</h3>
-  <% stylist.clients.each() do |client| %>
+  <% @stylist.clients.each() do |client| %>
     <li><%= client.name() %></li>
   <% end %>
 <% else %>
   <h3> <%= @stylist.name() %> doesn't have any clients yet. Bummer. </h3>
 <% end %>
 
-<h3>Add a Client</h3>
-<form action="/stylists" method="post">
+<h3>Add a Client for <%= @stylist.name() %></h3>
+<form action="/stylists/<%= @stylist.id() %>" method="post">
+  <input id="stylist_id" name="stylist_id" value="<%= @stylist.id() %>" type="hidden">
   <div class="form-group">
-    <input id="stylist_name" name="stylist_name" placeholder="Stylist Name">
+    <input id="client_name" name="client_name" placeholder="Client Name">
   </div>
-  <button type="submit" class="btn btn-primary">Add a Stylist</button>
+  <button type="submit">Add Client</button>
 </form>
-
-
-% add client
