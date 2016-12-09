@@ -48,3 +48,17 @@ describe('adding and viewing a client profile', {:type => :feature}) do
     expect(page).to have_content('Karl')
   end
 end
+
+describe('deleting a client', {:type => :feature}) do
+  it('allows user to delete a client') do
+    stylist = Stylist.new({:name => 'Milhouse Van Houten', :id => nil})
+    stylist.save()
+    visit('/')
+    click_link('Milhouse Van Houten')
+    fill_in('client_name', :with => 'Karl')
+    click_button('Add Client')
+    click_link('Karl')
+    click_button('Delete \'Em!')
+    expect(page).not_to have_content('Karl')
+  end
+end
