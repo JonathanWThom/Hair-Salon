@@ -47,10 +47,19 @@ describe(Stylist) do
     end
   end
 
+  describe('#clients') do
+    it('returns all clients of a given stylist') do
+      @stylist.save()
+      client = Client.new({:name => 'Bart Simpson', :stylist_id => @stylist.id()})
+      client.save()
+      client2 = Client.new({:name => 'Lisa Simpson', :stylist_id => @stylist.id()})
+      client2.save()
+      expect(@stylist.clients()).to(eq([client, client2]))
+    end
+  end
 
   #clients
-  #id
-  #find - has saves in it
+
 
   #update
   #delete
