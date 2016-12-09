@@ -18,3 +18,27 @@
   </div>
   <button type="submit">Add Client</button>
 </form>
+
+<h3>Modify this Stylist's Profile</h3>
+<form action="/stylists/<%= @stylist.id() %>" method="post">
+  <input name='_method' type='hidden' value='patch'>
+  <div class="form-group">
+    <label for="new_name">Change <%= @stylist.name() %>'s name to:</label>
+    <input id='new_name' name='new_name'>
+  </div>
+  <button type="submit" class='btn btn-primary'>Change Name</button>
+</form>
+
+<h3>Fire this Stylist</h3>
+<p>Warning, this will also remove all their clients from your database</p>
+<p>But to be fair, if you're firing them, it's probably because they don't have any.</p>
+<form action='/stylists/<%= @stylist.id() %>' method='post'>
+  <input name='_method' type='hidden' value='delete'>
+  <button type='submit' class='btn btn-danger'>Get Outta My Sight!</button>
+</form>
+
+
+
+<a href='/stylists'>Return to Stylists Page</a>
+<br>
+<a href='/'>Return to Home</a>
