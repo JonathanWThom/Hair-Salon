@@ -17,10 +17,24 @@ describe(Stylist) do
     end
   end
 
-  #all
-  #save
+  describe('#save') do
+    it('will save a stylist') do
+      @stylist.save()
+      expect(Stylist.all()).to(eq([@stylist]))
+    end
+  end
+
+  describe('#==') do
+    it('will treat stylists as equal if they have the same name and id') do
+      stylist2 = Stylist.new({:name => 'Marge Simpson', :id => nil})
+      expect(@stylist).to(eq(stylist2))
+    end
+  end
   #==
   #clients
   #id
   #find - has saves in it
+
+  #update
+  #delete
 end

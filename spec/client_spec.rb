@@ -37,4 +37,7 @@ describe(Client) do
     end
   end
 
+
+  #update
+  #delete
 end
