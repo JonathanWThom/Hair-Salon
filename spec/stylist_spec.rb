@@ -58,9 +58,13 @@ describe(Stylist) do
     end
   end
 
-  #clients
-
-
+  describe('update') do
+    it('updates a stylist\'s name') do
+      @stylist.save()
+      @stylist.update({:name => 'Maggie Simpson'})
+      expect(@stylist.name()).to(eq('Maggie Simpson'))
+    end
+  end
   #update
   #delete
 end
