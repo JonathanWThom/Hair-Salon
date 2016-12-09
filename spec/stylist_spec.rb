@@ -50,9 +50,9 @@ describe(Stylist) do
   describe('#clients') do
     it('returns all clients of a given stylist') do
       @stylist.save()
-      client = Client.new({:name => 'Bart Simpson', :stylist_id => @stylist.id()})
+      client = Client.new({:name => 'Bart Simpson', :stylist_id => @stylist.id(), :id => nil})
       client.save()
-      client2 = Client.new({:name => 'Lisa Simpson', :stylist_id => @stylist.id()})
+      client2 = Client.new({:name => 'Lisa Simpson', :stylist_id => @stylist.id(), :id => nil})
       client2.save()
       expect(@stylist.clients()).to(eq([client, client2]))
     end

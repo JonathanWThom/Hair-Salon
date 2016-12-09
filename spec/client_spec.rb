@@ -2,7 +2,7 @@ require('spec_helper')
 
 describe(Client) do
   before() do
-    @client = Client.new({:name => 'Homer Simpson', :stylist_id => 1})
+    @client = Client.new({:name => 'Homer Simpson', :stylist_id => 1, :id => nil})
   end
 
   describe('#name') do
@@ -32,12 +32,25 @@ describe(Client) do
 
   describe('#==') do
     it('sets clients equal if they have the same name and stylist id') do
-      client2 = Client.new({:name => 'Homer Simpson', :stylist_id => 1})
+      client2 = Client.new({:name => 'Homer Simpson', :stylist_id => 1, :id => nil})
       expect(@client).to(eq(client2))
     end
   end
 
+  describe('update') do
+    it('updates a client\'s name') do
+      @client.save()
+      @client.update({:name => 'Ned Flanders'})
+      expect(@client.name()).to(eq('Ned Flanders'))
+    end
+  end
 
-  #update
-  #delete
+  describe('delete') do
+    it('deletes a client') do
+      @client.save()
+      @client.delete()
+      expect(Client.all()).to(eq([]))
+    end
+  end
+  
 end
