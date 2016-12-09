@@ -27,6 +27,11 @@ $ cd Hair-Salon
 $ bundle
 $ ruby app.rb
 ```
+* _Then, in any modern browser:_
+
+```
+localhost:4567
+````
 
 ## Specifications
 1. User can add and view a stylist page
