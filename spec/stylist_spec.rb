@@ -30,7 +30,15 @@ describe(Stylist) do
       expect(@stylist).to(eq(stylist2))
     end
   end
-  #==
+
+  describe('.find') do
+    it('finds a stylist based on their id') do
+      @stylist.save()
+      stylist2 = Stylist.new({:name => 'Marge Simpson', :id => nil})
+      stylist2.save()
+      expect(Stylist.find(@stylist.id())).to(eq(@stylist))
+    end
+  end
   #clients
   #id
   #find - has saves in it
