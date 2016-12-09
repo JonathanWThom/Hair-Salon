@@ -11,3 +11,13 @@ describe('adding a new stylist', {:type => :feature}) do
     expect(page).to have_content('Milhouse Van Houten')
   end
 end
+
+describe('viewing a stylist\'s page', {:type => :feature}) do
+  it('allows the user to see the profile page of a stylist with their clients') do
+    stylist = Stylist.new({:name => 'Milhouse Van Houten', :id => nil})
+    stylist.save()
+    visit('/')
+    click_link('Milhouse Van Houten')
+    expect(page).to have_content('Milhouse Van Houten')
+  end
+end
