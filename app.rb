@@ -50,8 +50,8 @@ delete('/stylists/:id') do
 end
 
 get('/clients/:id') do
-  @client = Client.find('id')
-  stylist_id = @client.stylid_id()
+  @client = Client.find(params.fetch('id').to_i())
+  stylist_id = @client.stylist_id()
   @stylist = Stylist.find(stylist_id)
   erb(:client)
 end
